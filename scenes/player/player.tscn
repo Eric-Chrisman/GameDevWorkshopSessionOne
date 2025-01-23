@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://vbrwu5exlisq"]
+
+[ext_resource type="Script" path="res://scripts/character_body_2d.gd" id="1_262if"]
+[ext_resource type="SpriteFrames" uid="uid://h8d4hcoifqc4" path="res://resources/anim/player.tres" id="2_85ec5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhgxv"]
+size = Vector2(123, 270)
+
+[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_262if")
+sprite = NodePath("AnimatedSprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4.5, 14)
+shape = SubResource("RectangleShape2D_dhgxv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_85ec5")
+animation = &"air"

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="300"
+   height="500"
+   viewBox="0 0 79.374998 132.29167"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   sodipodi:docname="1.svg"
+   inkscape:export-filename="1.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.75811588"
+     inkscape:cx="79.143574"
+     inkscape:cy="199.83752"
+     inkscape:window-width="1920"
+     inkscape:window-height="1111"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1">
+    <inkscape:page
+       x="0"
+       y="0"
+       width="79.375"
+       height="132.29167"
+       id="page2"
+       margin="0"
+       bleed="0" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <rect
+     style="fill:#0055d4;stroke-width:0.218106"
+     id="rect4"
+     width="23.034077"
+     height="5.5840178"
+     x="-105.57285"
+     y="41.007637"
+     transform="rotate(-90)" />
+  <rect
+     style="fill:#0066ff;stroke-width:0.23947"
+     id="rect3"
+     width="23.383078"
+     height="6.6310215"
+     x="85.679787"
+     y="-39.611633"
+     transform="rotate(90)" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#ff5555;stroke-width:0.264583"
+       id="rect1"
+       width="21.638073"
+       height="29.316097"
+       x="28.269094"
+       y="58.981201"
+       sodipodi:insensitive="true" />
+    <rect
+       style="fill:#c83737;stroke-width:0.264583"
+       id="rect2"
+       width="7.3290243"
+       height="25.826086"
+       x="28.967098"
+       y="64.914215" />
+    <ellipse
+       style="fill:#abc837;stroke-width:0.264583"
+       id="path1"
+       cx="41.007641"
+       cy="50.256168"
+       rx="16.228554"
+       ry="16.054054" />
+  </g>
+</svg>

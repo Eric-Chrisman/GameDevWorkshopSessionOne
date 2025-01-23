@@ -1,0 +1,18 @@
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://c5qtpx1ntcl1d"]
+
+[ext_resource type="PackedScene" uid="uid://l5rdtgnk6ikc" path="res://scenes/platform/platform.tscn" id="1_2w7ho"]
+[ext_resource type="Texture2D" uid="uid://uaxsb67m5kfc" path="res://resources/sprites/icon.svg" id="2_vnfe2"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_ue6ts"]
+scenes/1/scene = ExtResource("1_2w7ho")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yg3hg"]
+texture = ExtResource("2_vnfe2")
+texture_region_size = Vector2i(125, 125)
+0:0/0 = 0
+0:0/0/modulate = Color(0.252028, 0.252028, 0.252028, 1)
+
+[resource]
+tile_size = Vector2i(125, 125)
+sources/0 = SubResource("TileSetScenesCollectionSource_ue6ts")
+sources/1 = SubResource("TileSetAtlasSource_yg3hg")
