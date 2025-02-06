@@ -1,10 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://vbrwu5exlisq"]
+[gd_scene load_steps=7 format=3 uid="uid://vbrwu5exlisq"]
 
 [ext_resource type="Script" path="res://scripts/character_body_2d.gd" id="1_262if"]
 [ext_resource type="SpriteFrames" uid="uid://h8d4hcoifqc4" path="res://resources/anim/player.tres" id="2_85ec5"]
+[ext_resource type="PackedScene" uid="uid://iq2qon4gpbqt" path="res://health.tscn" id="3_fh27l"]
+[ext_resource type="PackedScene" uid="uid://jnlyxnvae3mq" path="res://health_ui.tscn" id="4_b2i4k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dhgxv"]
 size = Vector2(123, 270)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wlrk"]
+size = Vector2(129, 279)
 
 [node name="player" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_262if")
@@ -17,3 +22,22 @@ shape = SubResource("RectangleShape2D_dhgxv")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_85ec5")
 animation = &"air"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(6.5, 20.5)
+shape = SubResource("RectangleShape2D_0wlrk")
+
+[node name="health" parent="." node_paths=PackedStringArray("health_ui_instance_id") instance=ExtResource("3_fh27l")]
+health_ui_instance_id = NodePath("../healthUI")
+max_health = 200
+
+[node name="healthUI" parent="." instance=ExtResource("4_b2i4k")]
+offset_left = -43.0
+offset_top = -180.0
+offset_right = -43.0
+offset_bottom = -180.0
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

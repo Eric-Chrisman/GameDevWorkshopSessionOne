@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://u114c8ads6ef"]
+
+[ext_resource type="Script" path="res://health_comp.gd" id="1_ulacy"]
+[ext_resource type="PackedScene" uid="uid://jnlyxnvae3mq" path="res://health_ui.tscn" id="2_drpc3"]
+
+[node name="Health" type="Node2D"]
+script = ExtResource("1_ulacy")
+
+[node name="healthUI" parent="." instance=ExtResource("2_drpc3")]
+offset_left = -44.0
+offset_top = -20.0
+offset_right = -44.0
+offset_bottom = -20.0
