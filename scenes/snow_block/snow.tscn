@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://btiyja24iu540"]
+[gd_scene load_steps=5 format=3 uid="uid://btiyja24iu540"]
 
 [ext_resource type="Texture2D" uid="uid://c0whbobuwgd7q" path="res://resources/sprites/snow.png" id="1_cvtj3"]
-[ext_resource type="Script" path="res://area_2d.gd" id="1_vk7ll"]
+[ext_resource type="Script" path="res://scenes/snow_block/area_2d.gd" id="1_vk7ll"]
+[ext_resource type="Script" path="res://scenes/snow_block/snow.gd" id="2_av18y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7n30"]
 size = Vector2(600, 314)
 
-[node name="Sprite2D" type="Sprite2D"]
+[node name="snow" type="Sprite2D"]
 texture = ExtResource("1_cvtj3")
+script = ExtResource("2_av18y")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 0

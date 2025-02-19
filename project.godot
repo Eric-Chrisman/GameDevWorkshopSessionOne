@@ -24,7 +24,8 @@ window/size/mode=4
 folder_colors={
 "res://resources/": "red",
 "res://scenes/": "orange",
-"res://scripts/": "yellow"
+"res://scripts/": "yellow",
+"res://ui/": "green"
 }
 
 [input]
@@ -51,3 +52,4 @@ space={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

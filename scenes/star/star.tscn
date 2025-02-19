@@ -1,0 +1,111 @@
+[gd_scene load_steps=9 format=3 uid="uid://c3tdhrh5dluxm"]
+
+[ext_resource type="Script" path="res://scenes/star/star.gd" id="1_3ypqx"]
+[ext_resource type="Texture2D" uid="uid://bvl7oldiydy4q" path="res://resources/sprites/star.png" id="1_oxhu1"]
+
+[sub_resource type="Animation" id="Animation_cw1pj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-9.53674e-07, -1)]
+}
+
+[sub_resource type="Animation" id="Animation_ct68b"]
+resource_name = "bob"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.733333, 1.5, 2.26667, 3),
+"transitions": PackedFloat32Array(0.683021, 1.46409, 0.307786, 2.07053, 1),
+"update": 0,
+"values": [Vector2(-9.53674e-07, -1), Vector2(0, 50), Vector2(-9.53674e-07, -1), Vector2(0, -50), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ibpvt"]
+_data = {
+"RESET": SubResource("Animation_cw1pj"),
+"bob": SubResource("Animation_ct68b")
+}
+
+[sub_resource type="Animation" id="Animation_6gblq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_omqg6"]
+resource_name = "rotate"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 3.14159, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_chi0h"]
+_data = {
+"RESET": SubResource("Animation_6gblq"),
+"rotate": SubResource("Animation_omqg6")
+}
+
+[node name="star" type="Node2D"]
+script = ExtResource("1_3ypqx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-9.53674e-07, -1)
+scale = Vector2(0.386111, 0.386111)
+texture = ExtResource("1_oxhu1")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Sprite2D"]
+z_index = -1
+position = Vector2(2.46995e-06, 2.58993)
+scale = Vector2(2.58993, 2.58993)
+emission_shape = 1
+emission_sphere_radius = 46.2
+gravity = Vector2(0, 300)
+scale_amount_min = 10.0
+scale_amount_max = 10.0
+color = Color(1, 1, 0.160784, 1)
+
+[node name="bob" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_ibpvt")
+}
+
+[node name="rotate" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_chi0h")
+}

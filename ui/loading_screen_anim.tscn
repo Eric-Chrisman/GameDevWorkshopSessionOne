@@ -1,0 +1,156 @@
+[gd_scene load_steps=12 format=3 uid="uid://4v020i5yci2j"]
+
+[ext_resource type="Script" path="res://center_container.gd" id="1_ykh8u"]
+[ext_resource type="Texture2D" uid="uid://bq2nurtaet7eq" path="res://resources/sprites/loading_arrow.png" id="2_hgt4c"]
+
+[sub_resource type="Gradient" id="Gradient_mmi36"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.357143)
+colors = PackedColorArray(0.0235294, 0.262745, 0.431373, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t0bhy"]
+gradient = SubResource("Gradient_mmi36")
+width = 8399
+height = 4774
+
+[sub_resource type="Animation" id="Animation_4yh0x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_15ko8"]
+resource_name = "loading"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 1),
+"transitions": PackedFloat32Array(1, 0.318639, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gh6dm"]
+resource_name = "unloading"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.366667, 1),
+"transitions": PackedFloat32Array(1, 0.203063, 0.0384733),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.25, 1.25), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2rvwg"]
+_data = {
+"RESET": SubResource("Animation_4yh0x"),
+"loading": SubResource("Animation_15ko8"),
+"unloading": SubResource("Animation_gh6dm")
+}
+
+[sub_resource type="Animation" id="Animation_ho7mk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/Sprite2D2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_glfgu"]
+resource_name = "rotate_arrow"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/Sprite2D2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(0.535886, 2.37841, 3.01126),
+"update": 0,
+"values": [0.0, 3.14159, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jtyi3"]
+_data = {
+"RESET": SubResource("Animation_ho7mk"),
+"rotate_arrow": SubResource("Animation_glfgu")
+}
+
+[node name="loading_screen_anim" type="CenterContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ykh8u")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+texture = SubResource("GradientTexture2D_t0bhy")
+flip_v = true
+
+[node name="CenterContainer" type="CenterContainer" parent="Node2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = -20.0
+offset_right = 37.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Node2D/CenterContainer"]
+layout_mode = 2
+text = "Loading"
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D"]
+rotation = -6.28319
+texture = ExtResource("2_hgt4c")
+
+[node name="bloom" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2rvwg")
+}
+
+[node name="rotate_arrow" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jtyi3")
+}
+
+[connection signal="animation_finished" from="bloom" to="." method="_on_bloom_animation_finished"]

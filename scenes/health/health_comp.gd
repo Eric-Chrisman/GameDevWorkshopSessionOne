@@ -10,8 +10,3 @@ var current_health: int = max_health
 func _ready() -> void:
 	if (health_ui_instance_id):
 		health_ui_instance_id.update_health(current_health)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
