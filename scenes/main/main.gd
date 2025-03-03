@@ -14,6 +14,7 @@ func _process(delta: float) -> void:
 	if !current_level:
 		var progress = []
 		ResourceLoader.load_threaded_get_status("res://resources/maps/debug_maps/debug_map_01.tscn", progress)
+		print(progress[0])
 		if progress[0] == 1:
 			current_loaded_level = ResourceLoader.load_threaded_get("res://resources/maps/debug_maps/debug_map_01.tscn")
 			current_level = current_loaded_level.instantiate()

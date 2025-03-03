@@ -32,6 +32,7 @@ theme = ExtResource("1_7katy")
 script = ExtResource("2_nctxo")
 
 [node name="title" type="Control" parent="."]
+visible = false
 layout_mode = 2
 
 [node name="PanelContainer2" type="PanelContainer" parent="title"]
@@ -134,7 +135,7 @@ offset_right = 75.5
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_bottom = 195
+theme_override_constants/margin_bottom = 185
 
 [node name="PanelContainer" type="PanelContainer" parent="level_select/MarginContainer"]
 layout_mode = 2
