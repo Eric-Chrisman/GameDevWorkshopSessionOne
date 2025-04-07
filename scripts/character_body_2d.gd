@@ -7,7 +7,7 @@ class_name Player
 @export var player_hurt_box: Area2D
 
 var jumpPower:float = -1500
-var moveSpeed:float = 100000
+var moveSpeed:float = 50000 * 2
 var gravity:float = 3000
 
 var is_slowed_down:bool = false

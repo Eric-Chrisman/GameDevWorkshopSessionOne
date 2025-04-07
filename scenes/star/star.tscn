@@ -1,7 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://c3tdhrh5dluxm"]
+[gd_scene load_steps=10 format=3 uid="uid://c3tdhrh5dluxm"]
 
 [ext_resource type="Script" path="res://scenes/star/star.gd" id="1_3ypqx"]
 [ext_resource type="Texture2D" uid="uid://bvl7oldiydy4q" path="res://resources/sprites/star.png" id="1_oxhu1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6nbrl"]
+size = Vector2(96, 91)
 
 [sub_resource type="Animation" id="Animation_cw1pj"]
 length = 0.001
@@ -98,6 +101,15 @@ scale_amount_min = 10.0
 scale_amount_max = 10.0
 color = Color(1, 1, 0.160784, 1)
 
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+position = Vector2(1.3332, -2.22043)
+rotation = -2.60086
+scale = Vector2(2.58993, 2.58993)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+position = Vector2(-11, -3)
+shape = SubResource("RectangleShape2D_6nbrl")
+
 [node name="bob" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite2D")
 libraries = {
@@ -109,3 +121,5 @@ root_node = NodePath("../Sprite2D")
 libraries = {
 "": SubResource("AnimationLibrary_chi0h")
 }
+
+[connection signal="area_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_area_entered"]

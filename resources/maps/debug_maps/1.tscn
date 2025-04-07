@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://d2kho1sddsw2u"]
+[gd_scene load_steps=6 format=4 uid="uid://d2kho1sddsw2u"]
 
 [ext_resource type="TileSet" uid="uid://c5qtpx1ntcl1d" path="res://resources/tileSet/new_tile_set.tres" id="1_c3kek"]
-[ext_resource type="Script" path="res://resources/maps/debug_maps/debug_map_01.gd" id="2_wvbi3"]
+[ext_resource type="Script" path="res://scripts/debug_map_01.gd" id="2_wvbi3"]
+[ext_resource type="Script" path="res://scripts/spwan_point.gd" id="3_fc4ep"]
 [ext_resource type="PackedScene" uid="uid://c3tdhrh5dluxm" path="res://scenes/star/star.tscn" id="3_qkm8t"]
 [ext_resource type="PackedScene" uid="uid://btiyja24iu540" path="res://scenes/snow_block/snow.tscn" id="4_mryd7"]
 
@@ -12,6 +13,7 @@ script = ExtResource("2_wvbi3")
 
 [node name="spwan_point" type="Node2D" parent="."]
 position = Vector2(-305, -178)
+script = ExtResource("3_fc4ep")
 
 [node name="Node2D" parent="." instance=ExtResource("3_qkm8t")]
 position = Vector2(9246, -1481)
